@@ -1,3 +1,6 @@
+Changes in version 1.15.4 (2026-09-18)
++ No longer convert directly GInteractions into data.frame/data.table
+ 
 Changes in version 1.15.1 (2026-05-28)
 + Imports Data via HiCParser package
 + Default filter for small chromosomes is now set to 0
