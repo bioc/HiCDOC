@@ -45,48 +45,70 @@ import(InteractionSet)
 import(data.table)
 import(ggplot2)
 import(methods)
-importFrom(BiocGenerics,cbind)
-importFrom(BiocGenerics,width)
-importFrom(BiocParallel,bplapply)
-importFrom(BiocParallel,bpmapply)
-importFrom(BiocParallel,bpparam)
-importFrom(GenomicRanges,GRanges)
-importFrom(GenomicRanges,distance)
-importFrom(GenomicRanges,end)
-importFrom(GenomicRanges,match)
-importFrom(GenomicRanges,start)
-importFrom(GenomicRanges,union)
-importFrom(Rcpp,evalCpp)
-importFrom(Rcpp,sourceCpp)
-importFrom(S4Vectors,"%in%")
-importFrom(S4Vectors,DataFrame)
-importFrom(S4Vectors,Rle)
-importFrom(S4Vectors,mcols)
-importFrom(S4Vectors,runLength)
-importFrom(S4Vectors,split)
-importFrom(Seqinfo,seqlevels)
-importFrom(Seqinfo,seqnames)
-importFrom(SummarizedExperiment,assay)
-importFrom(SummarizedExperiment,colData)
-importFrom(cowplot,get_plot_component)
-importFrom(cowplot,ggdraw)
-importFrom(grid,gpar)
-importFrom(grid,textGrob)
+importFrom(BiocGenerics,
+  cbind,
+  width
+)
+importFrom(BiocParallel,
+  bplapply,
+  bpmapply,
+  bpparam
+)
+importFrom(GenomicRanges,
+  GRanges,
+  distance,
+  end,
+  match,
+  start,
+  union
+)
+importFrom(Rcpp,
+  evalCpp,
+  sourceCpp
+)
+importFrom(S4Vectors,
+  "%in%",
+  DataFrame,
+  Rle,
+  mcols,
+  runLength,
+  split
+)
+importFrom(Seqinfo,
+  seqlevels,
+  seqnames
+)
+importFrom(SummarizedExperiment,
+  assay,
+  colData
+)
+importFrom(cowplot,
+  get_plot_component,
+  ggdraw
+)
+importFrom(grid,
+  gpar,
+  textGrob
+)
 importFrom(gridExtra,arrangeGrob)
 importFrom(gtools,mixedsort)
-importFrom(multiHiCcompare,cyclic_loess)
-importFrom(multiHiCcompare,hic_table)
-importFrom(multiHiCcompare,make_hicexp)
+importFrom(multiHiCcompare,
+  cyclic_loess,
+  hic_table,
+  make_hicexp
+)
 importFrom(pbapply,pbmapply)
-importFrom(stats,ecdf)
-importFrom(stats,loess)
-importFrom(stats,loess.control)
-importFrom(stats,median)
-importFrom(stats,optimize)
-importFrom(stats,p.adjust)
-importFrom(stats,prcomp)
-importFrom(stats,predict)
-importFrom(stats,quantile)
-importFrom(stats,update)
-importFrom(stats,wilcox.test)
+importFrom(stats,
+  ecdf,
+  loess,
+  loess.control,
+  median,
+  optimize,
+  p.adjust,
+  prcomp,
+  predict,
+  quantile,
+  update,
+  wilcox.test
+)
 useDynLib(HiCDOC)

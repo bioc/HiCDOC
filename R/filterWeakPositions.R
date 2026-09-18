@@ -23,9 +23,12 @@
 
     validColumns <- reducedObject@validAssay[[chromosomeName]]
 
-    interactions <- as.data.table(InteractionSet::interactions(reducedObject))
-    interactions <- interactions[, .(index1, index2)]
-
+    ids <- InteractionSet::anchorIds(reducedObject)
+    interactions <- data.table(
+        index1 = ids$first,
+        index2 = ids$second
+    )
+    
     # All known bins
     minBin <- min(interactions$index1, interactions$index2)
     maxBin <- max(interactions$index1, interactions$index2)
@@ -179,10 +182,10 @@ filterWeakPositions <- function(object, threshold = NULL) {
 
     object@weakBins <- weakBins
 
-    indices <- as.data.table(InteractionSet::interactions(object))
+    indices <- InteractionSet::anchorIds(object)
     toRemove <- (
-        indices$index1 %in% unlist(weakBins) |
-        indices$index2 %in% unlist(weakBins)
+        indices$first %in% unlist(weakBins) |
+        indices$second %in% unlist(weakBins)
     )
     if (sum(toRemove)>0) {
         object <- object[!toRemove,]

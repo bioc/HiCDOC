@@ -7,10 +7,10 @@ test_that("filterWeakPositions behaves as expected", {
     )
     expect_equal(nrow(object), 42646)
     expect_identical(object@weakBins,
-                     list("W" = numeric(0),
-                          "X" = c(112, 171, 200),
-                          "Y" = c(201, 322, 346),
-                          "Z" = numeric(0)))
+                     list("W" = integer(0),
+                          "X" = c(112L, 171L, 200L),
+                          "Y" = c(201L, 322L, 346L),
+                          "Z" = integer(0)))
     assay <- SummarizedExperiment::assay(object)
     expect_equal(sum(!is.na(assay)), 181180)
     expect_equal(colSums(assay, na.rm=TRUE), 

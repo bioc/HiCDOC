@@ -71,16 +71,15 @@ normalizeTechnicalBiases <-
     if (!is.null(cyclicLoessSpan)) {
         object@parameters$cyclicLoessSpan <- cyclicLoessSpan
     }
-        
-    hic_table <- as.data.table(InteractionSet::interactions(object))
-    hic_table <- hic_table[, .(
-        chromosome = seqnames1,
-        region1 = start1,
-        region2 = start2
-    )]
-    if (!is.factor(hic_table$chromosome)) {
-        hic_table[, chromosome := as.factor(chromosome)]
-    }
+     
+    a1 <- InteractionSet::anchors(object, type = "first")
+    a2 <- InteractionSet::anchors(object, type = "second")
+    
+    hic_table <- data.table(
+        chromosome = as.factor(GenomicRanges::seqnames(a1)),
+        region1    = GenomicRanges::start(a1),
+        region2    = GenomicRanges::start(a2)
+    )
     hic_table[, chromosome := as.numeric(chromosome)]
 
     currentAssay <- SummarizedExperiment::assay(object)

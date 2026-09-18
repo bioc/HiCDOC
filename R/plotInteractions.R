@@ -173,10 +173,15 @@ plotInteractions <- function(
         paste(object$condition, object$replicate, sep = "_")
     )
 
-    interactionsChromosome <- InteractionSet::interactions(
-        object[rowsChromosome, ]
+    a1 <- InteractionSet::anchors(object[rowsChromosome, ], type = "first")
+    a2 <- InteractionSet::anchors(object[rowsChromosome, ], type = "second")
+    
+    interactionsChromosome <- data.table(
+        seqnames1 = as.factor(GenomicRanges::seqnames(a1)),
+        start1    = GenomicRanges::start(a1),
+        start2    = GenomicRanges::start(a2)
     )
-    interactionsChromosome <- as.data.table(interactionsChromosome)
+    
     dataplot <- base::cbind(
         interactionsChromosome[, .(
             seqnames = seqnames1,
